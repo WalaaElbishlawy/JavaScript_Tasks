@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body{
+           background-color: rgb(247, 248, 248);
+           text-align: center;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           height: 100vh;
+        }
+        h2 {
+           color: #67c4d1;
+           font-size: 32px;
+           margin-bottom: 20px;
+        } 
+        .info{
+           background-color: #ffffff;
+           padding: 20px 30px;
+           border-radius: 10px;
+           width: 90%;
+           max-width: 400px;
+           text-align: left;
+           border: 2px solid #67c4d1;
+        }
+        .info p {
+           font-size: 18px;
+           margin: 10px ;
+           font-weight: normal;
+        }
+        .info span {
+           font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    
+    <h2 id="greeting"></h2>
+    <img id="userImage" src="" alt="User Image" width="150"><br>
+    <div class="info">
+        <p>Address: <span id="address"></span></p>
+        <p>Gender: <span id="gender"></span></p>
+        <p>Email: <span id="email"></span></p>
+        <p>Mobile: <span id="mobile"></span></p>
+    </div>
+
+    <script>
+       var params = new URLSearchParams(location.search);
+       
+       var name = params.get("name");
+       var address = params.get("address");
+       var gender = params.get("gender");
+       var email = params.get("email");
+       var mobile = params.get("mobile");
+
+       document.getElementById("greeting").textContent = "Welcome " + name;
+       document.getElementById("address").textContent = address;
+       document.getElementById("gender").textContent = gender;
+       document.getElementById("email").textContent = email;
+       document.getElementById("mobile").textContent = mobile;
+
+       var image = document.getElementById("userImage");
+       image.src = gender === "male" ? "./Images/male.jpg" : "./Images/female.jpg";
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morbels</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+ <div class="container">
+     <div class="marble"></div>
+     <div class="marble"></div>
+     <div class="marble active"></div>
+     <div class="marble"></div>
+     <div class="marble"></div>
+</div>
+
+<script>
+    var marbles = document.querySelectorAll(".marble");
+    var indx = 2;
+    var timer;
+
+    function moveMarble(){
+       marbles[indx].classList.remove('active');
+       indx++;
+       if (indx >= marbles.length) {
+          indx = 0; // Reset to first marble
+        }
+        marbles[indx].classList.add('active');
+    }
+
+    function startAnimation() {
+      timer = setInterval(moveMarble, 1000);
+    }
+
+    function stopAnimation() {
+      clearInterval(timer);
+    }
+
+    marbles.forEach(marble => {
+      marble.addEventListener('mouseenter', stopAnimation);
+      marble.addEventListener('mouseleave', startAnimation);
+    });
+
+    startAnimation();
+</script>
+    
+</body>
+</html>

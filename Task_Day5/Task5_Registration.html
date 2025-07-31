@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background-color: white;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .form-header {
+      background-color: #67c4d1;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    form {
+      background-color: rgb(250, 247, 242);
+      padding: 30px 40px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    input[type="button"] {
+      padding: 12px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input[type="button"]:first-of-type {
+      background-color: #67c4d1;
+      color: white;
+      margin-right: 10px;
+    }
+
+    input[type="button"]:last-of-type {
+      background-color: #9c9897;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <div class="form-header">Registration Form</div>
+
+    <form id="myForm" action="Task5_Welcome.html" method="get">
+
+      <label>Name:
+        <input type="text" id="name" name="name">
+      </label>
+
+      <label>Address:
+        <input type="text" id="address" name="address">
+      </label>
+
+      <label>Gender:
+        <input type="radio" name="gender" value="male" checked> Male
+        <input type="radio" name="gender" value="female"> Female
+      </label>
+
+      <label>Email:
+        <input type="email" id="email" name="email">
+      </label>
+
+      <label>Mobile:
+        <input type="text" id="mobile" name="mobile">
+      </label>
+
+      <input type="button" value="Submit" onclick="submitForm()">
+      <input type="button" value="Reset" onclick="resetForm()">
+    </form>
+  </div>
+
+  <script>
+    function submitForm() {
+      document.getElementById("myForm").submit();
+    }
+
+    function resetForm() {
+      document.getElementById("myForm").reset();
+    }
+  </script>
+</body>
+</html>

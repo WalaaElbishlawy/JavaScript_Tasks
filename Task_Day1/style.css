@@ -1,0 +1,79 @@
+* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+.right {
+     text-decoration-line: underline;
+     position: absolute;
+     top: 10px;
+     right: 20px;
+}
+body{
+    background-color: rgb(251, 236, 243);
+}
+.image-container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.header-style{
+    text-align: center; 
+}
+.image-welcome{
+    text-align: center;
+}
+.next{
+     display: block;
+     text-align: right;
+}
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form1{
+    width: 700px;
+    padding: 20px;
+    margin-left: 500px;
+}
+table{
+    width: 500px;
+    border-collapse: collapse;
+    border: 2px solid gray;
+}
+th{
+    text-align: left;
+    padding: 10px;
+    vertical-align: top;
+    border: 2px solid gray;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea{
+    width: 100%;
+    padding: 3px;
+    border: 1px solid;
+}
+textarea{
+    resize: none;
+    height: 100px;
+}
+input[type="sumbit"],
+input[type="reset"]{
+    padding: 8px,16px;
+    margin: 5px;
+}
+h2{
+    text-align: center;
+    margin-top: 30px;
+}
+.login{
+    border: 3px solid gray;
+    width:700px;
+    margin-left: 400px;
+    padding: 20px;
+}

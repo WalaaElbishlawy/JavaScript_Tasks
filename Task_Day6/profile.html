@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile Page</title>
+</head>
+<body>
+  <div id="profile"></div>
+
+  <script src="cookiesLib.js"></script>
+<script>
+  window.onload = function () {
+    var name = getCookie("name");
+    var gender = getCookie("gender");
+    var color = getCookie("color");
+    var visits = getCookie("visits");
+
+    if (!name || !gender || !color) {
+      alert("Missing cookies.");
+      location.href = "register.html";
+      return;
+    }
+
+    var visitCookieName = `visits_${name}`;
+    var visits = getCookie(visitCookieName);
+
+    var exp = new Date();
+    exp.setMonth(exp.getMonth() + 1);
+
+    // Increment visits
+    if (!visits) {
+      visits = "1";
+    } 
+    else {
+      visits = String(Number(visits) + 1);
+    }
+    setCookie(visitCookieName, visits, exp);
+
+    // Display profile
+    document.body.innerHTML = `
+      <img src="${gender === 'male' ? './Images/male.jpg' : './Images/female.jpg'}" width="150">
+      <p>Welcome,<span style="color:${color}" >${name}</span> You Have visited onsite <span style="color: ${color}">${visits}</span> Times.</p>
+    `;
+  };
+</script>
+
+</body>
+</html>

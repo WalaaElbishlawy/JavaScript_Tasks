@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task3_Bom.html</title>
+</head>
+<body>
+
+  <input type="button" value="Open" onclick="openWin()">
+
+  <script>
+    var win;
+    function openWin(){
+      win = open('', '', 'width=300,height=300,top=200,left=100,scrollbars=yes');
+      win.document.write(`
+        <html>
+        <head>
+          <style>
+            h1 {
+              color: red;
+            }
+          </style>
+          <script>
+            function startAutoScroll() {
+              setInterval(function () {
+                window.scrollBy(0, 50); // Scroll 50 every 3 seconds
+              }, 3000);
+            }
+            startAutoScroll();
+          <\/script>
+        </head>
+            <body>
+                <h1> Test Bom </h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam aut reprehenderit. Ab harum similique consequatur eius consectetur quae nam soluta. Praesentium, officiis mollitia sapiente veritatis laudantium recusandae provident iste.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam aut reprehenderit. Ab harum similique consequatur eius consectetur quae nam soluta. Praesentium, officiis mollitia sapiente veritatis laudantium recusandae provident iste.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam aut reprehenderit. Ab harum similique consequatur eius consectetur quae nam soluta. Praesentium, officiis mollitia sapiente veritatis laudantium recusandae provident iste.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam aut reprehenderit. Ab harum similique consequatur eius consectetur quae nam soluta. Praesentium, officiis mollitia sapiente veritatis laudantium recusandae provident iste.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam aut reprehenderit. Ab harum similique consequatur eius consectetur quae nam soluta. Praesentium, officiis mollitia sapiente veritatis laudantium recusandae provident iste.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam aut reprehenderit. Ab harum similique consequatur eius consectetur quae nam soluta. Praesentium, officiis mollitia sapiente veritatis laudantium recusandae provident iste.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia ipsam aut reprehenderit. Ab harum similique consequatur eius consectetur quae nam soluta. Praesentium, officiis mollitia sapiente veritatis laudantium recusandae provident iste.</p>
+           </body>
+        </html>
+      `);
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+

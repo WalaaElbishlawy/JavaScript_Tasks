@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2_Bom</title>
+</head>
+<body>
+
+    <input type="button" value="Show" onclick="showTyping()">
+
+    <script>
+        var win;
+        function showTyping(){
+            win = open('','','width=300, height=300, top=200,left=100');
+            win.document.body.innerHTML = "<p id='typingArea' style='font-family: monospace;'></p>";
+
+            var message = "Hello, I am Full Stack Developer...";
+            var indx = 0;
+
+            var typeInterval = setInterval(function(){
+                var typingArea = win.document.getElementById("typingArea");
+                if(indx < message.length)
+                {
+                    typingArea.innerHTML += message.charAt(indx);
+                    indx++;
+                }
+                else
+                {
+                    clearInterval(typeInterval);
+                    setTimeout (function(){
+                      win.close();
+                    },2000);
+                }
+            },100); 
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Page</title>
+</head>
+<body>
+
+  <label>Enter your name:</label><br>
+  <input type="text" id="name"><br><br>
+
+  <label>Enter your age:</label><br>
+  <input type="number" id="age"><br><br>
+
+  <label>Select your Gender:</label><br>
+  <input type="radio" name="gender" value="male" checked><label>Male</label>
+  <input type="radio" name="gender" value="female"><label>Female</label><br><br>
+
+  <label>Select your favorite color:</label><br>
+  <select id="color">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="black">Black</option>
+  </select><br><br>
+
+  <button onclick="register()">Register</button>
+  <hr>
+  <label>Cookie Name:</label><br>
+  <input type="text" id="cookieName"><br><br>
+  <label>Cookie Value:</label><br>
+  <input type="text" id="cookieValue"><br><br>
+
+  <button onclick="testSetCookie()">Set Cookie</button>
+  <p id="setresult"></p>
+  <button onclick="testGetCookie()">Get Cookie</button>
+  <p id="getresult"></p>
+  <button onclick="testDeleteCookie()">Delete Cookie</button>
+  <p id="deleteresult"></p>
+  <button onclick="checkHasCookie()">Check Has Cookie</button>
+  <p id="hasresult"></p>
+  <button onclick="testAllCookies()">Show All Cookies</button>
+  <p id="allresult"></p>
+
+  <script src="cookiesLib.js"></script>
+<script>
+
+  var expDate = new Date();
+  expDate.setMonth(expDate.getMonth() + 1);
+
+  function register() {
+    var name = document.getElementById("name").value;
+    var age = document.getElementById("age").value;
+    var gender = document.querySelector("input[name='gender']:checked").value;
+    var color = document.getElementById("color").value;
+
+    if (!name || !age || !gender || !color) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    setCookie("name", name, expDate);
+    setCookie("age", age, expDate);
+    setCookie("gender", gender, expDate);
+    setCookie("color", color, expDate);
+
+    location.href = "profile.html";
+  }
+
+  function testSetCookie() {
+    var key = document.getElementById("cookieName").value;
+    var val = document.getElementById("cookieValue").value;
+    if (!key || !val) {
+      alert("Please enter both cookie name and value.");
+      return;
+    }
+    setCookie(key, val, expDate);
+    document.getElementById("setresult").innerText = `Cookie "${key}" added with value "${val}".`;
+  }
+
+  function testGetCookie() {
+    var key = document.getElementById("cookieName").value;
+    if (!key) return alert("Enter cookie name.");
+  
+    var value = getCookie(key);
+    if (value) {
+      document.getElementById("getresult").innerText += `Cookie "${key}" = "${value}"\n`;
+    }
+    else{
+      document.getElementById("getresult").innerText = `Cookie: not found.\n`;
+    }
+  }
+
+  function testDeleteCookie() {
+    var key = document.getElementById("cookieName").value;
+    if (!key) {
+      alert("Enter cookie name.");
+      return;
+    }
+
+    var val = getCookie(key);
+    if (val) {
+      deleteCookie(key);
+      document.getElementById("deleteresult").innerText += `cookie: "${key}" with value "${val}" deleted.\n`;
+    }
+    else {
+    document.getElementById("deleteresult").innerText = `Cookie: not found.\n`;
+    }
+  }
+
+  function checkHasCookie() {
+    var key = document.getElementById("cookieName").value;
+    if (hasCookie(key)) {
+      document.getElementById("hasresult").innerText = `Cookie exists.`;
+    } 
+    else {
+    document.getElementById("hasresult").innerText = `Cookie does not exist.`;
+    }
+  }
+
+  function testAllCookies() {
+    var cookies = allCookieList();
+    var output = document.getElementById("allresult")
+    var display = "All Cookies:\n";
+    for (let key in cookies) {
+      display += `${key} = ${cookies[key]}\n`;
+      output.innerText = display;
+    }
+  }
+</script>
+
+</body>
+</html>
